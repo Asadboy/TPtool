@@ -37,17 +37,18 @@ function generateMissedCallSms() {
     var insurerName = selectedClient ? selectedClient.name : "[Insurer]";
     var contactNumber = selectedClient ? selectedClient.number : "[Contact Number]";
 
-    var smsTemplate = "Missed Call - SMS:\n\n" +
+    var smsTemplate = 
         "Hi " + firstName + ",\n\n" +
-        "You have missed a call from FMG Incident Management on behalf of " + insurerName + ". We have attempted to contact you to " +
-        "arrange a free repair and replacement vehicle following the incident you were involved in on " + formattedDate + ".\n" +
-        "Please return the call at your earliest convenience on " + contactNumber + " or email TPcontact@fmg.co.uk, quoting our " +
-        "reference " + reference + ".\n\n" +
-        "Our opening hours are: Monday - Friday 8:30am - 7pm. Saturday 9:30am - 1:30pm.\n\n" +
-        "FMG\nwww.fmg.co.uk";
+        "You have missed a call from FMG Incident Management on behalf of " + insurerName + ". We have attempted to contact you to\n" +
+        "arrange repair and a replacement vehicle following the incident you were involved in on " + formattedDate + ".\n" +
+        "Please return the call at your earliest convenience on " + contactNumber + " or email TPContact@fmg.co.uk, quoting our\n" +
+        "reference " + reference + ". You can also find out further information on our website - www.fmg.co.uk/Third-Party\n\n" +
+        "Our opening hours are: Monday - Friday 8:30am - 8pm. Saturday 9:30am - 1:30pm.\n\n" +
+        "FMG";
 
     document.getElementById('smsTemplate').value = smsTemplate;
 }
+
 
 function generatePreCallSms() {
     var firstName = document.getElementById('firstName').value;
@@ -65,18 +66,24 @@ function generatePreCallSms() {
 
     var insurerName = selectedClient ? selectedClient.name : "[Insurer]";
     var contactNumber = selectedClient ? selectedClient.number : "[Contact Number]";
+    var hireRate = selectedClient ? selectedClient.hireRate : "[HIRE RATE]";
 
-    var smsTemplate = "Pre-Call SMS:\n\n" +
+    var smsTemplate = 
         "Hi " + firstName + ",\n\n" +
-        "On behalf of " + insurerName + ", we will shortly be contacting you to arrange a free repair and replacement vehicle following the " +
-        "incident you were involved in on " + formattedDate + ".\n" +
-        "Please note that our contact number may be displayed as a private number.\n" +
+        "We have been instructed by " + insurerName + "  the insurers of the other vehicle involved in the incident on " + formattedDate + ".\n" +
+        "We will be calling you to assist in repairing your vehicle and providing a hire vehicle if necessary. This service will be provided at no " +
+        "cost to yourself and will be paid for by " + insurerName + ". The replacement vehicle, whilst free to yourself, will be billed to " +
+        insurerName + " at a daily rate of [Insert Hire Rate] plus VAT. The vehicle provided to you will be of a similar make and model to your own.\n\n" +
+        "If arrangements have already been made through your own insurer we can still assist, however you should provide a copy of this " +
+        "message to the company providing you with a hire vehicle.\n\n" +
+        "You can also find out further information on our website - www.fmg.co.uk/Third-Party\n\n" +
         "Alternatively, please contact us on " + contactNumber + " or email TPcontact@fmg.co.uk, quoting our reference " + reference + ".\n\n" +
         "Our opening hours are Monday - Friday 8:30am - 8pm. Saturday 9:30am - 1:30pm.\n\n" +
-        "FMG\nwww.fmg.co.uk";
+        "FMG";
 
     document.getElementById('smsTemplate').value = smsTemplate;
 }
+
 
 function generateUnableToContactSms() {
     var firstName = document.getElementById('firstName').value;
@@ -90,7 +97,7 @@ function generateUnableToContactSms() {
     var insurerName = selectedClient ? selectedClient.name : "[Insurer]";
     var contactNumber = selectedClient ? selectedClient.number : "[Contact Number]";
 
-    var smsTemplate = "Unable To Contact SMS:\n\n" +
+    var smsTemplate = 
         "Hi " + firstName + ",\n\n" +
         "You have missed a call from FMG Incident Management on behalf of " + insurerName + ". We are closing down the claim as we " +
         "have not been able to contact you. Should you wish to accept our services at another time please contact " + contactNumber + " " +
@@ -114,7 +121,7 @@ function generateCOR() {
     var insurerName = selectedClient ? selectedClient.name : "[Insurer]";
     var contactNumber = selectedClient ? selectedClient.number : "[Contact Number]";
 
-    var smsTemplate = "Customer's Own Repairer SMS:\n\n" +
+    var smsTemplate = 
         "Hi " + firstName + ",\n\n" +
         "As you have chosen to use your own repairer, please send us an estimate which should include a full break down " +
         "of the costs, along with supporting images to TPestimates@fmg.co.uk including your reference number. If your " +
@@ -137,7 +144,7 @@ function generateCOS() {
     var reference = document.getElementById('reference').value;
     var incidentDate = document.getElementById('incidentDate').value;
 
-    // Convert date toUK format (dd/mm/yyyy)
+    // Convert date to UK format (dd/mm/yyyy)
     var parts = incidentDate.split("-");
     var formattedDate = parts[2] + "/" + parts[1] + "/" + parts[0];
 
@@ -148,38 +155,34 @@ function generateCOS() {
     var insurerName = selectedClient ? selectedClient.name : "[Insurer]";
     var contactNumber = selectedClient ? selectedClient.number : "[Contact Number]";
 
-    var smsTemplate = "Template 5:\n\n" +
-        "Hi " + firstName + ",\n\n" +
+    var smsTemplate = 
         "Thank you for accepting the use of our services.\n\n" +
         "Vehicle repair - if you have chosen to use one of our network repairers, we will allocate a repairer who will be in " +
         "contact with you directly to arrange an assessment or collection of your vehicle. Once an assessment has been " +
-        "carried out and authorized by our engineers, the repairer will arrange a booking in date with you directly.\n\n" +
+        "carried out and authorised by our engineers, the repairer will arrange a booking in date with you directly.\n\n" +
         "Replacement vehicle - if we are providing you with a replacement vehicle this will be provided by one of our hire " +
         "partners (Auxillis, Enterprise, Europcar or Magna). Depending on the provider, there may be a small security " +
         "deposit required which will be reimbursed to you on return of the vehicle. We will book your hire vehicle once a " +
         "booking in date has been confirmed by the repairer.\n\n" +
         "IMPORTANT INFORMATION REGARDING THE MOTOR INSURANCE INDUSTRY\n" +
-        "There are currently nationwide industry challenges impacting the repair and replacement vehicle sectors, " +
-        "whereby parts supply, repairer capacity and vehicle supply are being affected:\n" +
-        "The continued global shortage of semiconductors made worse by the fallout from the Covid pandemic and the " +
-        "Russian invasion of Ukraine. The average car can contain up to 3,000 semiconductor chips and their shortage " +
-        "impacts on vehicle repair times.\n" +
-        "Rising used car prices reflecting, in part, longer new car delivery times. Average used car prices rose by 30% in the " +
-        "last year.\n" +
-        "More expensive repairs, coupled with rises in the costs of raw materials such as paint, as increasingly " +
-        "sophisticated vehicles are more costly to repair.\n" +
-        "A shortage of skilled labour in the vehicle repair sector. Delays in getting some spare parts are in some cases " +
-        "increasing vehicle repair times.\n\n" +
-        "Due to these unprecedented factors and despite our continued effort to service all our customers to the highest " +
-        "possible standard, we regret that you may experience some delays throughout the claims process.\n\n" +
-        "FMG, our partners, repair network and suppliers remain committed to providing an industry leading service " +
-        "during this time.\n\n" +
-        "Please contact us quoting your reference number " + reference + " on " + contactNumber + " if you have any " +
-        "questions.\n\n" +
+        "There are currently nationwide industry challenges impacting the repair and replacement vehicle sectors, whereby parts supply, " +
+        "repairer capacity and vehicle supply are being affected:\n" +
+        "The continued global shortage of semiconductors made worse by the fallout from the Covid pandemic and the Russian invasion " +
+        "of Ukraine. The average car can contain up to 3,000 semiconductor chips and their shortage impacts on vehicle repair times.\n" +
+        "Rising used car prices reflecting, in part, longer new car delivery times. Average used car prices rose by 30% in the last year.\n" +
+        "More expensive repairs, coupled with rises in the costs of raw materials such as paint, as increasingly sophisticated vehicles " +
+        "are more costly to repair.\n" +
+        "A shortage of skilled labour in the vehicle repair sector.\n" +
+        "Delays in getting some spare parts are in some cases increasing vehicle repair times.\n\n" +
+        "Due to these unprecedented factors and despite our continued effort to service all our customers to the highest possible standard, " +
+        "we regret that you may experience some delays throughout the claims process.\n\n" +
+        "FMG, our partners, repair network and suppliers remain committed to providing an industry leading service during this time.\n\n" +
+        "Please contact us quoting your reference number " + reference + " on " + contactNumber +  " if you have any queries.\n\n" +
         "FMG";
 
     document.getElementById('smsTemplate').value = smsTemplate;
 }
+
 
 window.addEventListener('DOMContentLoaded', function () {
     var clientDropdown = document.getElementById('client');
