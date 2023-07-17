@@ -184,6 +184,14 @@ function generateCOS() {
     document.getElementById('smsTemplate').value = smsTemplate;
 }
 
+function copyToClipboard() {
+    var smsTemplate = document.getElementById("smsTemplate");
+    smsTemplate.select();
+    document.execCommand("copy");
+  }
+  
+  var copyButton = document.getElementById("copyButton");
+  copyButton.addEventListener("click", copyToClipboard);
 
 window.addEventListener('DOMContentLoaded', function () {
     var clientDropdown = document.getElementById('client');

@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>TPtool by Asad</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <!-- Google tag (gtag.js) -->
+          <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-61ZZVNTKQD"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -11,35 +9,39 @@
   gtag('js', new Date());
 
   gtag('config', 'G-61ZZVNTKQD');
-</script>
+</script>  
+  <title>TPtool by Asad</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <h1>TPtool</h1>
-    <form id="smsForm">
-        <label for="firstName">First Name:</label>
-        <input type="text" id="firstName" required><br><br>
+  <h1>TPtool</h1>
+  <form id="smsForm">
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" required><br><br>
 
-        <label for="client">Client:</label>
-        <select id="client" required>
-            <option value="" disabled selected>Select a client</option>
-        </select><br><br>
+    <label for="client">Client:</label>
+    <select id="client" required>
+      <option value="" disabled selected>Select a client</option>
+    </select><br><br>
 
-        <label for="reference">Reference:</label>
-        <input type="text" id="reference" required><br><br>
+    <label for="reference">Reference:</label>
+    <input type="text" id="reference" required><br><br>
 
-        <label for="incidentDate">Incident Date:</label>
-        <input type="date" id="incidentDate" required><br><br>
+    <label for="incidentDate">Incident Date:</label>
+    <input type="date" id="incidentDate" required><br><br>
 
-        <button type="button" onclick="generateMissedCallSms()">Missed Call SMS</button>
-        <button type="button" onclick="generatePreCallSms()">Pre-Call SMS</button>
-        <button type="button" onclick="generateUnableToContactSms()">Unable To Contact SMS</button>
-        <button type="button" onclick="generateCOR()">Customers Own Repair SMS</button>
-        <button type="button" onclick="generateCOS()">Confirmation of Service SMS</button>
-    </form>
+    <button type="button" onclick="generateMissedCallSms()">Missed Call SMS</button>
+    <button type="button" onclick="generatePreCallSms()">Pre-Call SMS</button>
+    <button type="button" onclick="generateUnableToContactSms()">Unable To Contact SMS</button>
+    <button type="button" onclick="generateCOR()">Customers Own Repair SMS</button>
+    <button type="button" onclick="generateCOS()">Confirmation of Service SMS</button>
+  </form>
 
-    <br><br>
-    <textarea id="smsTemplate" rows="6" cols="50" readonly></textarea>
+  <br><br>
+  <textarea id="smsTemplate" rows="6" cols="50" readonly></textarea>
 
-    <script src="script.js"></script>
+  <button id="copyButton" type="button">Copy to Clipboard</button>
+
+  <script src="script.js"></script>
 </body>
 </html>
